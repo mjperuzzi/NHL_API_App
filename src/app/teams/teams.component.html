@@ -1,0 +1,37 @@
+<div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">NHL Team Information</h3>
+        </div>
+    <div class="panel-body">
+        <div class="container bootstrap-header-table"> 
+            <div class="row">
+                <input class="form-control" id="TeamSearch" name="TeamSearch" type="text" placeholder="Search for Team" style="margin-bottom:10px;" (keyup)="onTeamSearchKeyUp($event)" />
+            </div>
+            <table class="table table-striped" id="table-format">
+                <tr class="row header-row" style="cursor:pointer">
+                    <th (click)="sortBy(0)">Team Name</th>
+                    <th (click)="sortBy(1)">Rink</th>
+                    <th (click)="sortBy(2)">Location</th>
+                    <th (click)="sortBy(3)">Conference</th>
+                    <th (click)="sortBy(4)">Division</th>
+                    <th (click)="sortBy(5)">Abbreviation</th>
+                    <th>Website</th>
+                    <th (click)="sortBy(6)">Active Since</th>
+                </tr>
+                <tr class="row body-rows" *ngFor="let team of filteredTeams" (click)="routeTeam(team.id)" style="cursor:pointer" >
+                    <td>{{team.name}}</td>
+                    <td>{{team.venue.name}}</td>
+                    <td>{{team.venue.city}}</td>
+                    <td>{{team.conference.name}}</td>
+                    <td>{{team.division.name}}</td>
+                    <td>{{team.abbreviation}}</td>
+                    <td><a href="{{team.officialSiteUrl}}">{{team.officialSiteUrl}}</a></td>
+                    <td>{{team.firstYearOfPlay}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
