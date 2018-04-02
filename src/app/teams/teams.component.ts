@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Teams } from '../data/teams';
+
 
 import { TeamsService } from '../data/teams.service';
 import { Router } from '@angular/router';
@@ -11,8 +11,8 @@ import { Router } from '@angular/router';
 })
 export class TeamsComponent implements OnInit {
 
-  teams: Teams[];
-  filteredTeams: Teams[];
+  teams: any[];
+  filteredTeams: any[];
   getTeamsSub: any;
   loadError: boolean;
   namesDir: String = 'asc';
@@ -22,13 +22,14 @@ export class TeamsComponent implements OnInit {
   divDir: String = 'asc';
   abbDir: String = 'asc';
   actDir: String = 'asc';
+  colState: ['asc', 'asc', 'asc', 'asc', 'asc', 'asc', 'asc', 'asc' ];
 
   constructor(private teamService: TeamsService, private router: Router) { }
    // get Teams data from service assign to teams array.  Set load parameter
   ngOnInit() {
     this.getTeamsSub = this.teamService.getTeams().subscribe(data => {
-      console.log(data);
-      this.teams = data.teams;  // Ignore it's working
+      // console.log(data);
+      this.teams = data.teams;
       this.filteredTeams = data.teams;
       // console.log(this.teams);
 
@@ -47,7 +48,7 @@ export class TeamsComponent implements OnInit {
   }
 
   onTeamSearchKeyUp(event: any) {
-    console.log(event);
+    // console.log(event);
     const val = event.target.value.toLowerCase();
     // console.log(val);
     this.filteredTeams = this.teams.filter((team) => {
@@ -61,9 +62,11 @@ export class TeamsComponent implements OnInit {
         }
       });
   }
+  // #sortSwitch
   // large switch statement
   sortBy(n) {
     // a b serve as filteredTeams
+
     switch (n) {
       case 0:
       if (this.namesDir === 'asc') {
@@ -159,8 +162,8 @@ export class TeamsComponent implements OnInit {
       default:
         console.log('Error in sort switch');
     }
+    // #endsortSwitch
   }
-
   // tslint:disable-next-line:use-life-cycle-interface
   ngOnDestroy() {
     if (this.getTeamsSub) {
