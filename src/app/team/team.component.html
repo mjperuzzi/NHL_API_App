@@ -1,7 +1,70 @@
 
 
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title" >{{team.name}}</h3>
+<div class="container-fluid" *ngIf="team">
+    <div class="row content">
+      <div class="col-sm-3 sidenav hidden-xs" >
+        <a href={{team.officialSiteUrl}}><h2>{{team.name}}</h2></a>
+        <ul class="nav nav-pills nav-stacked">
+          <li class="active"><a routerLink="#section1">Roster</a></li>
+          <li><a routerLink="#section2">Standings</a></li>
+          <li><a routerLink="#section3">Schedule</a></li>
+        </ul><br>
+      </div>
+      <br>
+      
+      <div class="col-sm-9">
+        <div class="well">
+          <h4>Dashboard</h4>
+          <p>Some text..</p>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="well">
+              <h4>Team Abbreviation</h4>
+              <p>{{team.abbreviation}}</p> 
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="well">
+              <h4>Active Since</h4>
+              <p>{{team.firstYearOfPlay}}</p> 
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="well">
+              <h4>Arena</h4>
+              <p>{{team.venue.name}}</p> 
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="well">
+              <h4>Time Zone</h4>
+              <p>{{team.venue.timeZone.id + " " + team.venue.timeZone.tz}}</p> 
+            </div>
+          </div>
+        </div>
+        <div class="row">          
+          <div class="col-sm-12">
+              <h3>Roster</h3>
+            <div class="well">
+              <p>Text</p> 
+              <p>Text</p> 
+              <p>Text</p> 
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="well">
+              <p>Text</p> 
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="well">
+              <p>Text</p> 
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+  </div>

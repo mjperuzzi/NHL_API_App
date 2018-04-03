@@ -14,10 +14,11 @@ import { PlayersComponent } from './players/players.component';
 import { TeamsService } from './data/teams.service';
 
 // Note adjusted name
-import { HttpClientModule } from '@angular/common/http';
-import { HttpClient } from 'selenium-webdriver/http';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { TeamComponent } from './team/team.component';
 import { RosterComponent } from './roster/roster.component';
+import { TeamWikiService } from './data/team-wiki.service';
 
 
 @NgModule({
@@ -36,9 +37,11 @@ import { RosterComponent } from './roster/roster.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule    // NOTE Difference
+    HttpClientModule,    // NOTE Difference
+    HttpClientJsonpModule
   ],
-  providers: [TeamsService],
+  providers: [TeamsService,
+              TeamWikiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

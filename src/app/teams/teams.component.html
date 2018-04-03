@@ -9,7 +9,7 @@
             </div>
             <table class="table table-striped" id="table-format">
                 <tr class="row header-row" style="cursor:pointer">
-                    <th (click)="sortBy2(0)">Team Name</th>
+                    <th (click)="sortBy(0)">Team Name</th>
                     <th (click)="sortBy(1)">Rink</th>
                     <th (click)="sortBy(2)">Location</th>
                     <th (click)="sortBy(3)">Conference</th>
@@ -25,7 +25,7 @@
                     <td>{{team.conference.name}}</td>
                     <td>{{team.division.name}}</td>
                     <td>{{team.abbreviation}}</td>
-                    <td><a href="{{team.officialSiteUrl}}">{{team.officialSiteUrl}}</a></td>
+                    <td><a routerLink="{{team.officialSiteUrl}}">{{team.officialSiteUrl}}</a></td>
                     <td>{{team.firstYearOfPlay}}</td>
                 </tr>
             </table>

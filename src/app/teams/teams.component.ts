@@ -22,7 +22,6 @@ export class TeamsComponent implements OnInit {
   divDir: String = 'asc';
   abbDir: String = 'asc';
   actDir: String = 'asc';
-  colState: ['asc', 'asc', 'asc', 'asc', 'asc', 'asc', 'asc', 'asc' ];
 
   constructor(private teamService: TeamsService, private router: Router) { }
    // get Teams data from service assign to teams array.  Set load parameter
