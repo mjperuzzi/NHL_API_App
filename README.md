@@ -1,6 +1,6 @@
 # NhlApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.1.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.1. Makes use of common Open NHL api's amoung the ones listed here https://github.com/dword4/nhlapi#teams and here https://github.com/erunion/sport-api-specifications/tree/master/nhl.
 
 ## Development server
 
